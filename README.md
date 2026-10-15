@@ -1,0 +1,2 @@
+# SinglishANDEmojisSentimentAnalysis
+Research Proposal
