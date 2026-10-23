@@ -1,0 +1,102 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+
+\usepackage{booktabs} % For professional looking tables
+\usepackage{hyperref} % For clickable links and citations
+\usepackage[authoryear]{natbib} % For bibliography management (or use biblatex)
+\usepackage{enumitem}   % Allows fine-tuning of lists inside tables to save space
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Sentiment Analysis of Code-Mixed Singlish (Sinhala-English) Reviews with Emoji Fusion NLP Approach\\
+}
+
+\author{\IEEEauthorblockN{K. M. Sajana Karunanayake}
+    \IEEEauthorblockA{\textit{University of Moratuwa} \\
+        \textit{Department of Computer Science and Engineering}\\
+        Moratuwa, Sri Lanka \\
+        sajanak.26@cse.mrt.ac.lk | karunanayakekmsn.26@uom.lk}
+}
+
+\maketitle
+
+\begin{abstract}
+    Sentiment analysis of code-mixed Sinhala-English text --- commonly termed ``Singlish'' --- has recently begun to attract research
+    attention, with annotated datasets and fine-tuned multilingual transformers (e.g., XLM-R) now reported for domains such
+    as banking feedback and e-commerce product reviews \citep{aththanayaka2020sentimental, rizvi2025enhancing, galwatta2026salangabhava, dhananjaya2022bertifying}.
+    However, this emerging body of work consistently treats emoji as noise to be stripped during preprocessing rather than
+    as a signal to be modeled, and the existing Daraz.lk-based dataset targets aspect-based extraction rather than emoji-fused
+    overall sentiment. Separately, emoji-aware sentiment fusion has been explored for other code-mixed language pairs, such as
+    English-Hindi \citep{singh2024predicting}, but not for Sinhala-English. This research targets that specific,
+    verified gap: it proposes to (i) construct an annotated corpus of Singlish reviews that retains emoji, drawing on
+    Daraz.lk product reviews and currently unstudied Sri Lankan mobile app store reviews; (ii) fine-tune multilingual
+    transformer models on this corpus, building on established Sinhala transformer benchmarking \citep{dhananjaya2022bertifying};
+    and (iii) design and evaluate explicit emoji-text fusion strategies, benchmarked against text-only baselines. The expected
+    contributions are a new emoji-preserving annotated dataset spanning e-commerce and app-store reviews, and the first controlled
+    emoji-fusion benchmark for Sinhala-English code-mixed sentiment analysis.
+\end{abstract}
+
+% \section{Introduction}
+% % TODO: Motivate the problem -- rise of code-mixed, emoji-rich user-generated content in Sri Lankan e-commerce/app ecosystems; why sentiment analysis matters for businesses and platforms; why Sinhala/Singlish + emoji is an underserved combination.
+
+% \section{Problem Statement}
+Recent work has established that Sinhala-English code-mixed sentiment analysis
+is feasible: annotated corpora exist \citep{aththanayaka2020sentimental}, XLM-R
+has been benchmarked as the strongest available multilingual encoder for
+Sinhala \citep{dhananjaya2022bertifying}, and fine-tuned XLM-R models now
+report 88--92\% accuracy on Sinhala and code-mixed banking feedback
+\citep{rizvi2025enhancing}. A concurrent aspect-based sentiment dataset built
+from Daraz.lk product reviews, SalAngaBhava, further closes the e-commerce
+review gap \citep{galwatta2026salangabhava}. What remains unsolved is narrower
+than originally assumed: (1) every one of these Sinhala-English studies removes
+or ignores emoji during preprocessing, so no existing work measures whether
+emoji carry sentiment signal beyond what the code-mixed text already encodes,
+or how best to fuse the two; (2) emoji-text fusion architectures have been
+demonstrated for other code-mixed pairs, e.g. English-Hindi
+\citep{singh2024predicting}, but this design has not been adapted or evaluated
+for Sinhala-English; and (3) SalAngaBhava's Daraz.lk coverage is aspect-based
+rather than emoji-fused overall sentiment, and Sri Lankan mobile app store
+reviews --- an emoji-dense source in practice --- have no published annotated
+sentiment data at all. (Ride-hailing platforms such as PickMe were considered
+as an additional source but do not expose a public review/comment feature, so
+they are excluded from the data collection plan.) This research is scoped to
+these three specific gaps rather than to code-mixed Sinhala sentiment analysis
+in general.
+
+% \section{Research Objectives}
+% % TODO: List 3-5 concrete objectives, e.g.:
+% % 1. Construct and publicly release an annotated Singlish-emoji review corpus.
+% % 2. Benchmark multilingual transformer models (XLM-R, etc.) on this corpus.
+% % 3. Design and evaluate emoji-text fusion strategies.
+% % 4. Analyze error patterns specific to code-mixing and emoji ambiguity.
+
+% \section{Literature Review}
+% % TODO: Cover (a) Sinhala/Singlish NLP and code-mixed sentiment analysis generally, (b) emoji sentiment/embedding research, (c) multilingual transformer fine-tuning (XLM-R, mBERT), (d) existing low-resource review datasets, and identify the specific gap this thesis fills.
+
+% \section{Methodology}
+% \subsection{Data Collection}
+% % TODO: Scraping approach for Daraz.lk product reviews and Sri Lankan mobile app store reviews (Google Play/App Store); note PickMe has no public review feature and is excluded; ethical/ToS considerations; target corpus size.
+% \subsection{Annotation}
+% % TODO: Annotation scheme (e.g., positive/negative/neutral, or fine-grained), number of annotators, inter-annotator agreement metric (e.g., Cohen's/Fleiss' kappa).
+% \subsection{Model Development}
+% % TODO: Baselines (lexicon-based, classical ML); fine-tuning XLM-R or similar multilingual transformer; emoji representation (emoji2vec, learned embeddings) and fusion strategy (early/late fusion, attention-based).
+% \subsection{Evaluation}
+% % TODO: Metrics (accuracy, macro-F1), ablations (text-only vs. emoji-fused), error analysis plan.
+
+% \section{Expected Contributions}
+% % TODO: (1) Novel public dataset; (2) benchmark results for code-mixed Sinhala sentiment analysis; (3) emoji fusion methodology generalizable to other low-resource code-mixed settings.
+
+\clearpage
+\nocite{*}
+\bibliographystyle{plainnat} % Or choose your preferred style like apa, ieee, etc.
+\bibliography{references} % Points to your references.bib file
+
+\end{document}
